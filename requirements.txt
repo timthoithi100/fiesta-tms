@@ -1,0 +1,49 @@
+# FastAPI and ASGI Server
+fastapi
+uvicorn[standard]
+gunicorn
+python-multipart
+
+# Database
+sqlalchemy
+asyncpg
+alembic
+psycopg2-binary
+
+# Redis
+redis
+aioredis
+
+# Authentication & Security
+python-jose[cryptography]
+passlib[bcrypt]
+python-dotenv
+bcrypt==4.0.1
+
+# Rate Limiting
+slowapi
+
+# Validation
+pydantic
+pydantic-settings
+email-validator
+
+# Utilities
+python-dateutil
+pytz
+
+# Logging
+structlog
+
+# Testing
+pytest
+pytest-asyncio
+httpx
+coverage
+
+# Monitoring (Optional)
+sentry-sdk
+
+# Templates
+jinja2
+aiofiles

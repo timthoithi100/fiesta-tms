@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Management - Fiesta TMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <div class="logo-title">Fiesta TMS - Admin Portal</div>
+            <button class="logout-btn" id="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">Admin Menu</div>
+        <ul class="sidebar-menu">
+            <li><a href="/admin/home">🏠 Dashboard</a></li>
+            <li><a href="#" onclick="loadModule('students')">👥 Student Management</a></li>
+            <li><a href="#" onclick="loadModule('fee_management')">💰 Fee Management</a></li>
+            <li><a href="#" onclick="loadModule('unit_management')">📚 Unit Management</a></li>
+            <li><a href="#" onclick="loadModule('results_management')">📊 Results Management</a></li>
+            <li><a href="#" onclick="loadModule('clearance_processing')">✅ Clearance Processing</a></li>
+            <li><a href="#" onclick="loadModule('reports')">📈 Reports & Analytics</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="dashboard-container">
+        <h2 class="page-title">Fee Management</h2>
+        <div class="card shadow-sm col-lg-8">
+            <div class="card-body">
+                <h5 class="card-title mb-4">Record New Payment</h5>
+                <form id="payment-form">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Student ID (Internal UUID)</label>
+                            <input type="text" id="student_id" class="form-control" placeholder="Paste student ID here" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Amount (KES)</label>
+                            <input type="number" id="amount" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Method</label>
+                            <select id="payment_method" class="form-select">
+                                <option value="MPESA">M-Pesa</option>
+                                <option value="BANK_TRANSFER">Bank Transfer</option>
+                                <option value="CASH">Cash</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Ref Number</label>
+                            <input type="text" id="reference_number" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Academic Year</label>
+                            <input type="text" id="academic_year" class="form-control" value="2023/2024">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Semester</label>
+                            <select id="semester" class="form-select">
+                                <option value="1">Semester 1</option>
+                                <option value="2">Semester 2</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Remarks</label>
+                            <textarea id="remarks" class="form-control"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-success">Record Payment</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/admin.js"></script>
+</body>
+</html>

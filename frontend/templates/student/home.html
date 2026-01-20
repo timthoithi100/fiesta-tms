@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Fiesta TMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <div class="logo-title">Fiesta TMS - Student Portal</div>
+            <button class="logout-btn" id="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">Student Menu</div>
+        <ul class="sidebar-menu">
+            <li><a href="/student/home">🏠 Dashboard</a></li>
+            <li><a href="#" onclick="loadModule('personal_info')">👤 Personal Information</a></li>
+            <li><a href="#" onclick="loadModule('fees')">💰 Fees Statement</a></li>
+            <li><a href="#" onclick="loadModule('unit_registration')">📚 Unit Registration</a></li>
+            <li><a href="#" onclick="loadModule('results')">📊 Provisional Results</a></li>
+            <li><a href="#" onclick="loadModule('graduation')">🎓 Graduation Request</a></li>
+            <li><a href="#" onclick="loadModule('clearance')">✅ Clearance Request</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="dashboard-container" id="dashboard-data">
+        <h2 class="page-title">Student Dashboard</h2>
+        <div class="dashboard-grid">
+            <div class="dashboard-tile">
+                <div class="tile-title">Registered Units</div>
+                <div class="tile-content" id="registered-units">0</div>
+                <p class="text-muted">Current semester</p>
+            </div>
+            <div class="dashboard-tile">
+                <div class="tile-title">Attempted Units</div>
+                <div class="tile-content" id="attempted-units">0</div>
+                <p class="text-muted">All time</p>
+            </div>
+            <div class="dashboard-tile">
+                <div class="tile-title">Fee Payment</div>
+                <div class="tile-info">
+                    <div class="info-item">
+                        <div class="info-label">Billed</div>
+                        <div class="info-value" id="total-billed">KES 0</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Paid</div>
+                        <div class="info-value" id="total-paid">KES 0</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Balance</div>
+                        <div class="info-value" id="fee-balance">KES 0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-tile">
+                <div class="tile-title">Basic Information</div>
+                <p><strong>Name:</strong> <span id="student-name">-</span></p>
+                <p><strong>ID:</strong> <span id="student-id">-</span></p>
+                <p><strong>Gender:</strong> <span id="gender">-</span></p>
+                <p><strong>DOB:</strong> <span id="dob">-</span></p>
+            </div>
+            <div class="dashboard-tile">
+                <div class="tile-title">Contact Information</div>
+                <p><strong>Phone:</strong> <span id="phone-number">-</span></p>
+                <p><strong>City:</strong> <span id="city">-</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/student.js"></script>
+    <script>
+        // Inside student/home.html
+        function loadModule(module) {
+            const routes = {
+                'personal_info': '/student/personal_info',
+                'fees': '/student/fees',
+                'unit_registration': '/student/unit_registration',
+                'results': '/student/results',
+                'graduation': '/student/graduation',
+                'clearance': '/student/clearance'
+            };
+            
+            if (routes[module]) {
+                window.location.href = routes[module];
+            } else {
+                alert("Module " + module + " is being initialized.");
+            }
+        }
+    </script>
+</body>
+</html>

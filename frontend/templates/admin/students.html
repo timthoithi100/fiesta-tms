@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management - Fiesta TMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <div class="logo-title">Fiesta TMS - Admin Portal</div>
+            <button class="logout-btn" id="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">Admin Menu</div>
+        <ul class="sidebar-menu">
+            <li><a href="/admin/home">🏠 Dashboard</a></li>
+            <li><a href="#" onclick="loadModule('students')">👥 Student Management</a></li>
+            <li><a href="#" onclick="loadModule('fee_management')">💰 Fee Management</a></li>
+            <li><a href="#" onclick="loadModule('unit_management')">📚 Unit Management</a></li>
+            <li><a href="#" onclick="loadModule('results_management')">📊 Results Management</a></li>
+            <li><a href="#" onclick="loadModule('clearance_processing')">✅ Clearance Processing</a></li>
+            <li><a href="#" onclick="loadModule('reports')">📈 Reports & Analytics</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="dashboard-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">Student Management</h2>
+            <div class="search-box" style="width: 300px;">
+                <input type="text" id="student-search" class="form-control" placeholder="Search by name or ID...">
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Program</th>
+                            <th>Phone</th>
+                            <th>City</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-table-body">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/admin.js"></script>
+</body>
+</html>

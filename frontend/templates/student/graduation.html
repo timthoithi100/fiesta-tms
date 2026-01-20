@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduation Request - Fiesta TMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <div class="logo-title">Fiesta TMS - Graduation Portal</div>
+            <button class="logout-btn" id="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <nav class="mb-4">
+            <a href="/student/home" class="btn btn-outline-primary btn-sm">← Back to Dashboard</a>
+        </nav>
+
+        <h2 class="page-title">Graduation Application</h2>
+        
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">New Graduation Request</h5>
+                        <p class="text-muted small">Submit this request only if you have completed all required units and cleared all fees.</p>
+                        <hr>
+                        <div class="mb-3">
+                            <label for="graduation-remarks" class="form-label">Student Remarks / Completion Notes</label>
+                            <textarea id="graduation-remarks" class="form-control" rows="5" placeholder="e.g., Completed all units..."></textarea>
+                        </div>
+                        <button class="btn btn-success w-100" onclick="submitRequest('graduation')">Submit Graduation Request</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h5 class="mb-3">Request Status History</h5>
+                <div id="requests-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/student.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof loadRequests === 'function') loadRequests();
+        });
+    </script>
+</body>
+</html>

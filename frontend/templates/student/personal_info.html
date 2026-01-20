@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Info - Fiesta TMS</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/custom.css">
+</head>
+<body>
+<div class="header">
+    <div class="header-content">
+        <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+        <div class="logo-title">Fiesta TMS</div>
+        <button id="logout-btn" class="logout-btn">Logout</button>
+    </div>
+</div>
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-header">Student Menu</div>
+    <ul class="sidebar-menu">
+        <li><a href="/student/personal_info">Personal Info</a></li>
+        <li><a href="/student/fees">Fees</a></li>
+        <li><a href="/student/unit_registration">Units</a></li>
+        <li><a href="/student/results">Results</a></li>
+        <li><a href="/student/graduation">Graduation</a></li>
+        <li><a href="/student/clearance">Clearance</a></li>
+    </ul>
+</div>
+<div id="overlay" class="overlay"></div>
+<div class="dashboard-container">
+    <h1 class="page-title">Personal Information</h1>
+    <div class="form-container" id="personal-info-form"></div>
+</div>
+<script src="/static/js/main.js"></script>
+<script src="/static/js/student.js"></script>
+<script>
+if (!utils.protectRoute('student')) { window.location.href = '/login'; }
+</script>
+</body>
+</html>

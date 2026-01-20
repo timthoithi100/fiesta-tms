@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Fiesta TMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <style>
+        .welcome-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-container::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .welcome-container::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .welcome-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            z-index: 1;
+            animation: scaleIn 0.8s ease-out;
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .welcome-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .welcome-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .welcome-subtitle {
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .action-btn {
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-login {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        .btn-login:hover {
+            background-color: #5568d3;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-signup {
+            background-color: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-signup:hover {
+            background-color: #667eea;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="welcome-card">
+            <div class="welcome-logo">F</div>
+            <h1 class="welcome-title">Welcome to Fiesta</h1>
+            <p class="welcome-subtitle">Training Management System for Culinary Excellence</p>
+            <div class="action-buttons">
+                <a href="/login" class="action-btn btn-login">Login</a>
+                <a href="/signup" class="action-btn btn-signup">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/main.js"></script>
+    <script>
+        // Redirect if already logged in
+        if (utils.isAuthenticated()) {
+            utils.redirectToDashboard();
+        }
+    </script>
+</body>
+</html>

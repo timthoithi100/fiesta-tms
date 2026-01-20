@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Management - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-title">Fiesta Admin - Grade Entry</div>
+            <button class="logout-btn" id="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <nav class="mb-4">
+            <a href="/admin/home" class="btn btn-outline-secondary btn-sm">← Dashboard</a>
+        </nav>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Enter Student Grades</h5>
+                <div class="d-flex gap-2">
+                    <select id="unit-filter" class="form-select form-select-sm" style="width: 200px;">
+                        <option value="">Select Unit...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Student Name</th>
+                                <th>Unit Code</th>
+                                <th>Marks</th>
+                                <th>Grade</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="grading-table-body">
+                            <tr><td colspan="6" class="text-center text-muted">Select a unit to view registered students</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/admin.js"></script>
+</body>
+</html>

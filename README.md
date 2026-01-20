@@ -60,7 +60,7 @@ cd fiesta-tms
 
 2. **Create environment file**
 ```bash
-cp backend/.env.example backend/.env
+touch backend/.env.example backend/.env
 # Edit .env with your settings
 ```
 
@@ -100,7 +100,7 @@ pip install -r requirements.txt
 
 4. **Configure environment**
 ```bash
-cp .env.example .env
+touch .env.example .env
 # Edit .env with your database and Redis URLs
 ```
 

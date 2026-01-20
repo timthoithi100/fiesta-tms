@@ -48,9 +48,7 @@ A modern, secure, and scalable web-based training management system for Fiesta S
 - Redis 7+
 - Docker & Docker Compose (optional)
 
-## Quick Start
-
-### Using Docker (Recommended)
+## Setup
 
 1. **Clone the repository**
 ```bash
@@ -60,56 +58,34 @@ cd fiesta-tms
 
 2. **Create environment file**
 ```bash
-touch backend/.env.example backend/.env
-# Edit .env with your settings
+touch .env
+# Edit .env, refer to .env.example
 ```
 
-3. **Start services**
-```bash
-docker-compose up -d
-```
-
-4. **Run migrations**
-```bash
-docker-compose exec web alembic upgrade head
-```
-
-5. **Access the application**
-- Frontend: http://localhost:8000
-- API Docs: http://localhost:8000/docs
-
-### Manual Setup
-
-1. **Create virtual environment**
+3. **Create virtual environment**
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-2. **Install dependencies**
+4. **Install dependencies**
 ```bash
 cd backend
 pip install -r requirements.txt
 ```
 
-3. **Set up PostgreSQL & Redis**
+5. **Set up PostgreSQL & Redis**
 ```bash
 # Install and start PostgreSQL
 # Install and start Redis
 ```
 
-4. **Configure environment**
-```bash
-touch .env.example .env
-# Edit .env with your database and Redis URLs
-```
-
-5. **Run migrations**
+6. **Run migrations**
 ```bash
 alembic upgrade head
 ```
 
-6. **Start the application**
+7. **Start the application**
 ```bash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```

@@ -70,7 +70,6 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 4. **Install dependencies**
 ```bash
-cd backend
 pip install -r requirements.txt
 ```
 

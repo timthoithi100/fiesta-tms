@@ -79,16 +79,11 @@ pip install -r requirements.txt
 # Install and start Redis
 ```
 
-6. **Run migrations**
-```bash
-alembic upgrade head
-```
-
-7. **Start the application**
+6. **Start the application**
 ```bash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
-
+ 
 ## Project Structure
 
 ```

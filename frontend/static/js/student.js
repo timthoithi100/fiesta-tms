@@ -181,6 +181,27 @@ async function loadRequests() {
     }
 }
 
+// Add this function to student.js
+async function submitRequest(requestType) {
+    const remarks = document.getElementById(`${requestType}-remarks`).value;
+    
+    try {
+        await utils.apiRequest('/student/requests', {
+            method: 'POST',
+            body: JSON.stringify({
+                request_type: requestType,
+                student_remarks: remarks
+            })
+        });
+        
+        utils.showAlert(`${requestType.charAt(0).toUpperCase() + requestType.slice(1)} request submitted successfully`, 'success');
+        document.getElementById(`${requestType}-remarks`).value = '';
+        loadRequests();
+    } catch (error) {
+        utils.showAlert('Failed to submit request: ' + error.message, 'error');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     if (!utils.protectRoute('student')) return;
     const path = window.location.pathname;
@@ -191,3 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (path.includes('results')) loadResults();
     if (path.includes('graduation') || path.includes('clearance')) loadRequests();
 });
+
+window.submitRequest = submitRequest;
+window.registerUnit = registerUnit;

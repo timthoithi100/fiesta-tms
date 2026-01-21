@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, Enum as SQLEnum, Numeric
+from sqlalchemy import Boolean, Column, String, Integer, DateTime, ForeignKey, Enum as SQLEnum, Numeric
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -27,8 +27,7 @@ class Unit(Base):
     unit_name = Column(String(200), nullable=False)
     credits = Column(Integer, nullable=False, default=3)
     description = Column(String(500), nullable=True)
-    is_active = Column(String(20), default="active")
-    
+    is_active = Column(Boolean, default=True, nullable=False)    
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
     

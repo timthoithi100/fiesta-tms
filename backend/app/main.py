@@ -7,11 +7,14 @@ from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 from contextlib import asynccontextmanager
 import structlog
-
+import os
+from pathlib import Path
 from app.config import settings
 from app.database import init_db, close_db
 from app.routes import auth, student, admin
 from app.dependencies import RateLimitMiddleware
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 structlog.configure(
     processors=[
@@ -57,8 +60,8 @@ async def add_security_headers(request: Request, call_next):
     response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
     return response
 
-app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
-templates = Jinja2Templates(directory="frontend/templates")
+app.mount("/static", StaticFiles(directory=str(BASE_DIR / "frontend" / "static")), name="static")
+templates = Jinja2Templates(directory=str(BASE_DIR / "frontend" / "templates"))
 
 app.include_router(auth.router, prefix="/api")
 app.include_router(student.router, prefix="/api")

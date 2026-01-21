@@ -40,7 +40,7 @@ async def get_all_students(
                 Student.student_id.ilike(f"%{search}%"),
                 Student.first_name.ilike(f"%{search}%"),
                 Student.last_name.ilike(f"%{search}%"),
-                Student.email.ilike(f"%{search}%")
+                Student.phone_number.ilike(f"%{search}%")
             )
         )
     

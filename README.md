@@ -58,7 +58,7 @@ cd fiesta-tms
 
 2. **Create environment file**
 ```bash
-touch .env
+touch backend/.env
 # Edit .env, refer to .env.example
 ```
 

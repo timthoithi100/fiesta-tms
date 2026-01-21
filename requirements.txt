@@ -9,7 +9,6 @@ sqlalchemy
 asyncpg
 alembic
 psycopg2-binary
-python3-alembic
 
 # Redis
 redis
